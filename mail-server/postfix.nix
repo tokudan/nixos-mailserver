@@ -117,6 +117,8 @@ in
         virtual_mailbox_domains = ${vhosts_file}
         virtual_alias_maps = hash:/var/lib/postfix/conf/valias
         virtual_transport = lmtp:unix:private/dovecot-lmtp
+        # This is required to avoid becoming a backscatter source
+        local_recipient_maps = $virtual_alias_maps
 
         # sasl with dovecot
         smtpd_sasl_type = dovecot
