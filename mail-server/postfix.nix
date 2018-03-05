@@ -118,7 +118,8 @@ in
         virtual_alias_maps = hash:/var/lib/postfix/conf/valias
         virtual_transport = lmtp:unix:private/dovecot-lmtp
         # This is required to avoid becoming a backscatter source
-        local_recipient_maps = $virtual_alias_maps
+        virtual_mailbox_maps = hash:/var/lib/postfix/conf/valias
+        local_recipient_maps = hash:/var/lib/postfix/conf/valias
 
         # sasl with dovecot
         smtpd_sasl_type = dovecot
